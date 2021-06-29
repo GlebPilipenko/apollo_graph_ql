@@ -1,25 +1,12 @@
-import logo from './logo.svg';
-import './App.css';
+import {client} from './init/client';
+import {ApolloProvider} from '@apollo/react-hooks';
+import {Customer} from './components/customer';
+import {Login} from './components/customer/components/login';
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
-}
-
-export default App;
+export const App = () => (
+  <ApolloProvider client={client}>
+    <Login />
+    <Customer />
+    {/*<Pet />*/}
+  </ApolloProvider>
+);
